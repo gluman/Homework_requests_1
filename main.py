@@ -1,7 +1,5 @@
 import requests
 from pprint import pprint
-import pandas as pd
-
 
 class Superhero:
     '''
@@ -40,16 +38,16 @@ class Superhero:
         return response.json()
 
 
-# compare_heroes = ['Halk', 'Capitan America', 'Thanos']
-compare_heroes = ['A-Bomb', 'Abe Sapien', 'Abin Sur']
+compare_heroes = ['Halk', 'Capitan America', 'Thanos']
+# compare_heroes = ['A-Bomb', 'Abe Sapien', 'Abin Sur'] # alternative heroes
 
 if __name__ == '__main__':
     hero = Superhero()
     info_heroes = hero.get_all_superhero()
     ids_heroes = {}
     for info in info_heroes:
-         if info['name'] in compare_heroes:
-             ids_heroes[info['name']] = info['powerstats']['intelligence']
+        if info['name'] in compare_heroes:
+            ids_heroes[info['name']] = info['powerstats']['intelligence']
 
     max = 0
     for name in ids_heroes.keys():
@@ -57,11 +55,4 @@ if __name__ == '__main__':
             Name = name
             max = ids_heroes[name]
 
-
     pprint(Name)
-
-
-
-
-
-
